@@ -4,15 +4,19 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "Product", schema = "mas")
+@Table(name = "product", schema = "mas")
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="type",discriminatorType=DiscriminatorType.STRING)
 public class ProductEntity {
     private int idProduct;
     private String manufacturer;
     private Integer price;
     private Byte visibility;
+    private CategoryEntity category;
 
     @Id
     @Column(name = "id_product")
+    @GeneratedValue(strategy=GenerationType.AUTO)
     public int getIdProduct() {
         return idProduct;
     }
@@ -66,4 +70,15 @@ public class ProductEntity {
     public int hashCode() {
         return Objects.hash(idProduct, manufacturer, price, visibility);
     }
+
+    @ManyToOne
+    @JoinColumn(name = "id_category")
+    public CategoryEntity getCategory() {
+        return category;
+    }
+
+    public void setCategory(CategoryEntity category) {
+        this.category = category;
+    }
+
 }

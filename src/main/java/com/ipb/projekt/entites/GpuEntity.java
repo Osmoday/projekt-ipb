@@ -4,22 +4,11 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "GPU", schema = "mas")
-public class GpuEntity {
-    private int idGpu;
+@DiscriminatorValue("gpu")
+public class GpuEntity extends ProductEntity{
     private Integer slots;
     private Integer streamingProcessors;
     private String clockspeed;
-
-    @Id
-    @Column(name = "idgpu")
-    public int getIdGpu() {
-        return idGpu;
-    }
-
-    public void setIdGpu(int idGpu) {
-        this.idGpu = idGpu;
-    }
 
     @Basic
     @Column(name = "slots")
@@ -52,18 +41,7 @@ public class GpuEntity {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        GpuEntity gpuEntity = (GpuEntity) o;
-        return idGpu == gpuEntity.idGpu &&
-                Objects.equals(slots, gpuEntity.slots) &&
-                Objects.equals(streamingProcessors, gpuEntity.streamingProcessors) &&
-                Objects.equals(clockspeed, gpuEntity.clockspeed);
-    }
-
-    @Override
     public int hashCode() {
-        return Objects.hash(idGpu, slots, streamingProcessors, clockspeed);
+        return Objects.hash(slots, streamingProcessors, clockspeed);
     }
 }

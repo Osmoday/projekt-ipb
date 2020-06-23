@@ -1,6 +1,7 @@
 package com.ipb.projekt.entites;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.Objects;
 
 @Entity
@@ -8,9 +9,11 @@ import java.util.Objects;
 public class CategoryEntity {
     private int idCategory;
     private String name;
+    private Collection<ProductEntity> productEntities;
 
     @Id
     @Column(name = "id_category")
+    @GeneratedValue(strategy=GenerationType.AUTO)
     public int getIdCategory() {
         return idCategory;
     }
@@ -41,5 +44,14 @@ public class CategoryEntity {
     @Override
     public int hashCode() {
         return Objects.hash(idCategory, name);
+    }
+
+    @OneToMany(mappedBy = "category")
+    public Collection<ProductEntity> getProductEntities() {
+        return productEntities;
+    }
+
+    public void setProductEntities(Collection<ProductEntity> productEntities) {
+        this.productEntities = productEntities;
     }
 }
