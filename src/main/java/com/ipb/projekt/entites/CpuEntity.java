@@ -12,7 +12,7 @@ public class CpuEntity {
     private String turboclock;
 
     @Id
-    @Column(name = "IdCPU")
+    @Column(name = "idcpu")
     public int getIdCpu() {
         return idCpu;
     }
@@ -22,7 +22,7 @@ public class CpuEntity {
     }
 
     @Basic
-    @Column(name = "Cores")
+    @Column(name = "cores")
     public Integer getCores() {
         return cores;
     }
@@ -32,7 +32,7 @@ public class CpuEntity {
     }
 
     @Basic
-    @Column(name = "Clockspeed")
+    @Column(name = "clockspeed")
     public String getClockspeed() {
         return clockspeed;
     }
@@ -42,7 +42,7 @@ public class CpuEntity {
     }
 
     @Basic
-    @Column(name = "Turboclock")
+    @Column(name = "turboclock")
     public String getTurboclock() {
         return turboclock;
     }

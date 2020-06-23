@@ -12,7 +12,7 @@ public class ProductEntity {
     private Byte visibility;
 
     @Id
-    @Column(name = "IdProduct")
+    @Column(name = "id_product")
     public int getIdProduct() {
         return idProduct;
     }
@@ -22,7 +22,7 @@ public class ProductEntity {
     }
 
     @Basic
-    @Column(name = "Manufacturer")
+    @Column(name = "manufacturer")
     public String getManufacturer() {
         return manufacturer;
     }
@@ -32,7 +32,7 @@ public class ProductEntity {
     }
 
     @Basic
-    @Column(name = "Price")
+    @Column(name = "price")
     public Integer getPrice() {
         return price;
     }
@@ -42,7 +42,7 @@ public class ProductEntity {
     }
 
     @Basic
-    @Column(name = "Visibility")
+    @Column(name = "visibility")
     public Byte getVisibility() {
         return visibility;
     }

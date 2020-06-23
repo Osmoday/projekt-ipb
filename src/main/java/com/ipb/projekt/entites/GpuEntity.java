@@ -12,7 +12,7 @@ public class GpuEntity {
     private String clockspeed;
 
     @Id
-    @Column(name = "IdGPU")
+    @Column(name = "idgpu")
     public int getIdGpu() {
         return idGpu;
     }
@@ -22,7 +22,7 @@ public class GpuEntity {
     }
 
     @Basic
-    @Column(name = "Slots")
+    @Column(name = "slots")
     public Integer getSlots() {
         return slots;
     }
@@ -32,7 +32,7 @@ public class GpuEntity {
     }
 
     @Basic
-    @Column(name = "StreamingProcessors")
+    @Column(name = "streaming_processors")
     public Integer getStreamingProcessors() {
         return streamingProcessors;
     }
@@ -42,7 +42,7 @@ public class GpuEntity {
     }
 
     @Basic
-    @Column(name = "Clockspeed")
+    @Column(name = "clockspeed")
     public String getClockspeed() {
         return clockspeed;
     }

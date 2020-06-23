@@ -12,7 +12,7 @@ public class RamEntity {
     private String dieCapacity;
 
     @Id
-    @Column(name = "IdRAM")
+    @Column(name = "idram")
     public int getIdRam() {
         return idRam;
     }
@@ -22,7 +22,7 @@ public class RamEntity {
     }
 
     @Basic
-    @Column(name = "Dice")
+    @Column(name = "dice")
     public Integer getDice() {
         return dice;
     }
@@ -32,7 +32,7 @@ public class RamEntity {
     }
 
     @Basic
-    @Column(name = "Clockspeed")
+    @Column(name = "clockspeed")
     public String getClockspeed() {
         return clockspeed;
     }
@@ -42,7 +42,7 @@ public class RamEntity {
     }
 
     @Basic
-    @Column(name = "DieCapacity")
+    @Column(name = "die_capacity")
     public String getDieCapacity() {
         return dieCapacity;
     }
