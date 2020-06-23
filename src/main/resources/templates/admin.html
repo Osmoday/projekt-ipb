@@ -3,15 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" />
-    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script
             src="https://code.jquery.com/jquery-3.5.1.min.js"
             integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
             crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <title>Admin panel</title>
 </head>
 <body>
 <h2>Product list</h2>
+<h4>CPUs</h4>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCpu">Add new cpu</button>
+
 <table class="table table-stripped">
     <thead>
     <tr>
@@ -20,7 +23,7 @@
         <td>Manufacturer</td>
         <td>Category</td>
         <td>Price</td>
-        <td>Details</td>
+        <td>Delete</td>
     </tr>
     </thead>
     <tr th:each="item:${products}">
@@ -29,8 +32,100 @@
         <td th:text="${item.manufacturer}"></td>
         <td th:text="${item.category.name}"></td>
         <td th:text="${item.price}"></td>
-        <td><button>Details</button></td>
+        <td>
+            <form th:action="@{/remove_product}" method="post">
+                <input type="hidden" name="idProduct" th:value="${item.idProduct}"/>
+                <button class="btn btn-danger">Delete</button>
+            </form>
+        </td>
     </tr>
 </table>
+
+<div class="modal fade" id="addCpu" tabindex="-1" role="dialog" aria-labelledby="mod1" aria-hidden="true">
+    <form th:action="@{/add_cpu}" method="post">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="mod1">New message</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="id_product" class="col-form-label">Product Id:</label>
+                        <input type="text" class="form-control" id="id_product" name="idProduct">
+                    </div>
+                    <div class="form-group">
+                        <label for="name" class="col-form-label">Name</label>
+                        <input type="text" class="form-control" id="name" name="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="manufacturer" class="col-form-label">Manufacturer</label>
+                        <input type="text" class="form-control" id="manufacturer" name="manufacturer">
+                    </div>
+                    <div class="form-group">
+                        <label for="category" class="col-form-label">Category</label>
+                        <input type="text" class="form-control" id="category" name="category">
+                    </div>
+                    <div class="form-group">
+                        <label for="cores" class="col-form-label">Core count</label>
+                        <input type="text" class="form-control" id="cores" name="cores">
+                    </div>
+                    <div class="form-group">
+                        <label for="clockspeed" class="col-form-label">Base Clock (MHz)</label>
+                        <input type="text" class="form-control" id="clockspeed" name="clockspeed">
+                    </div>
+                    <div class="form-group">
+                        <label for="turboclock" class="col-form-label">Turbo Clock (MHz)</label>
+                        <input type="text" class="form-control" id="turboclock" name="turboclock">
+                    </div>
+                    <div class="form-group">
+                        <label for="price" class="col-form-label">Price</label>
+                        <input type="text" class="form-control" id="price" name="price">
+                    </div>
+                    <div class="form-group">
+                        <label for="visibility" class="col-form-label">Visibility</label>
+                        <input type="text" class="form-control" id="visibility" name="visibility">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Delete
+</button>
+
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="mod0" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mod0">Delete confirmation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this item?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                <button type="button" class="btn btn-primary">Yes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+</script>
 </body>
 </html>

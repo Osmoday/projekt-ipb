@@ -10,6 +10,16 @@ public class CpuEntity extends ProductEntity{
     private String clockspeed;
     private String turboclock;
 
+    public CpuEntity(int idProduct, String manufacturer, Integer price, Byte visibility, CategoryEntity category, String imgPath, String name, Integer cores, String clockspeed, String turboclock) {
+        super(idProduct, manufacturer, price, visibility, category, imgPath, name);
+        this.cores = cores;
+        this.clockspeed = clockspeed;
+        this.turboclock = turboclock;
+    }
+
+    public CpuEntity() {
+    }
+
     @Basic
     @Column(name = "cores")
     public Integer getCores() {

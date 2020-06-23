@@ -64,4 +64,8 @@ public class ProductService {
     public void addNewRam(RamEntity e) {
         this.ramRepository.save(e);
     }
+
+    public void removeProductById(int id) {
+        this.productRepository.deleteById(id);
+    }
 }

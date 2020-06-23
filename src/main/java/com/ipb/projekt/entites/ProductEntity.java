@@ -16,6 +16,19 @@ public class ProductEntity {
     private String imgPath;
     private String name;
 
+    public ProductEntity(int idProduct, String manufacturer, Integer price, Byte visibility, CategoryEntity category, String imgPath, String name) {
+        this.idProduct = idProduct;
+        this.manufacturer = manufacturer;
+        this.price = price;
+        this.visibility = visibility;
+        this.category = category;
+        this.imgPath = imgPath;
+        this.name = name;
+    }
+
+    public ProductEntity() {
+    }
+
     @Id
     @Column(name = "id_product")
     @GeneratedValue(strategy=GenerationType.AUTO)
