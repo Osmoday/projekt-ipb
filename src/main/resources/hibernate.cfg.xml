@@ -6,6 +6,11 @@
   <session-factory>
     <property name="connection.url"><![CDATA[jdbc:mariadb://localhost:3306/mas?user=mas5&password=kanapka]]></property>
     <property name="connection.driver_class">org.mariadb.jdbc.Driver</property>
+    <mapping class="com.ipb.projekt.entites.CpuEntity"/>
+    <mapping class="com.ipb.projekt.entites.CategoryEntity"/>
+    <mapping class="com.ipb.projekt.entites.GpuEntity"/>
+    <mapping class="com.ipb.projekt.entites.ProductEntity"/>
+    <mapping class="com.ipb.projekt.entites.RamEntity"/>
 
     <!-- <property name="connection.username"/> -->
     <!-- <property name="connection.password"/> -->
