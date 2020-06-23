@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" />
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.5.1.min.js"
+            integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+            crossorigin="anonymous"></script>
+    <title>Admin panel</title>
+</head>
+<body>
+<h2>Product list</h2>
+<table class="table table-stripped">
+    <thead>
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Manufacturer</td>
+        <td>Category</td>
+        <td>Price</td>
+        <td>Details</td>
+    </tr>
+    </thead>
+    <tr th:each="item:${products}">
+        <td th:text="${item.idProduct}"></td>
+        <td th:text="${item.name}"></td>
+        <td th:text="${item.manufacturer}"></td>
+        <td th:text="${item.category.name}"></td>
+        <td th:text="${item.price}"></td>
+        <td><button>Details</button></td>
+    </tr>
+</table>
+</body>
+</html>

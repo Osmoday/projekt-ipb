@@ -1,7 +1,7 @@
 package com.ipb.projekt.entites;
 
 import javax.persistence.*;
-import java.util.Objects;
+import java.util.*;
 
 @Entity
 @Table(name = "product", schema = "mas")
@@ -13,6 +13,8 @@ public class ProductEntity {
     private Integer price;
     private Byte visibility;
     private CategoryEntity category;
+    private String imgPath;
+    private String name;
 
     @Id
     @Column(name = "id_product")
@@ -81,4 +83,23 @@ public class ProductEntity {
         this.category = category;
     }
 
+    @Basic
+    @Column(name = "img_path")
+    public String getImgPath() {
+        return imgPath;
+    }
+
+    public void setImgPath(String imgPath) {
+        this.imgPath = imgPath;
+    }
+
+    @Basic
+    @Column(name = "name")
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
